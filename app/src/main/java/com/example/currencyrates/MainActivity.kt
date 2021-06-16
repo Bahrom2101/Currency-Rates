@@ -31,6 +31,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -86,13 +87,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.value1.addTextChangedListener(NumberTextWatcher(binding.value1))
         binding.value1.addTextChangedListener {
-            if (it.toString().trim() != "") {
-                val value = it.toString().toDouble()
+            val str = it.toString()
+            var s = ""
+            if (str.trim() != "") {
+                for (c in str) {
+                    if (c != ',') {
+                        s += c
+                    }
+                }
+                val value = s.toDouble()
                 val ccyName1 = binding.ccyName1.text.toString()
                 val ccyName2 = binding.ccyName2.text.toString()
                 val convert = getConvert(value, ccyName1, ccyName2)
-                binding.value2.text = convert.toString()
+                binding.value2.text = convert
             } else {
                 binding.value2.text = ""
             }
@@ -126,7 +135,7 @@ class MainActivity : AppCompatActivity() {
                 })
     }
 
-    private fun getConvert(value: Double, ccyName1: String, ccyName2: String): Double {
+    private fun getConvert(value: Double, ccyName1: String, ccyName2: String): String {
         var v = 0.0
         var currency: CurrencyDb? = null
         when ("O'zbek so'mi") {
@@ -147,8 +156,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        val number: Double = v
-        return String.format("%.3f", number).toDouble()
+        val dec = DecimalFormat("#,###.#########")
+        return dec.format(v).toString()
     }
 
     private fun sendRequest() {

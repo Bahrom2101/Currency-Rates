@@ -96,7 +96,7 @@ class CurrencyAdapter(var onClickListener: OnClickListener) :
             itemCurrencyBinding.ccy.text = "1 ${currencyDb.ccy}"
             itemCurrencyBinding.ccyName.text = currencyDb.ccyName
             val rate = currencyDb.rate?.toDouble()!! / currencyDb.nominal!!.toDouble()
-            itemCurrencyBinding.rate.text = "$rate"
+            itemCurrencyBinding.rate.text = String.format("%.3f", rate)
             itemCurrencyBinding.root.setOnClickListener {
                 onClickListener.onClick(currencyDb)
             }
