@@ -307,7 +307,7 @@ class MainActivity : AppCompatActivity() {
                     for (currencyDb in list) {
                         if ((currencyDb.ccy?.lowercase(Locale.getDefault())!!
                                 .contains(search.lowercase(Locale.getDefault()).trim())
-                                    || currencyDb.ccy?.lowercase(Locale.getDefault())!!
+                                    || currencyDb.ccyName?.lowercase(Locale.getDefault())!!
                                 .contains(search.lowercase(Locale.getDefault()).trim()))
                             && !subList.contains(currencyDb)
                         ) {
