@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08000000"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/flag1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/us"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ccyName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/regular"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/value1"
+        app:layout_constraintLeft_toLeftOf="@id/value1" />
+
+    <EditText
+        android:id="@+id/value1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_back"
+        android:fontFamily="@font/regular"
+        android:hint="Qiymatni kiriting..."
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@id/flag1"
+        app:layout_constraintLeft_toRightOf="@id/flag1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flag1"
+        tools:ignore="HardcodedText,SpUsage" />
+
+    <ImageView
+        android:id="@+id/flag2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="35dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uz"
+        app:layout_constraintLeft_toLeftOf="@id/flag1"
+        app:layout_constraintTop_toBottomOf="@id/flag1" />
+
+    <TextView
+        android:id="@+id/ccyName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/regular"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@id/value2"
+        app:layout_constraintLeft_toLeftOf="@id/value2" />
+
+    <TextView
+        android:id="@+id/value2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_back"
+        android:fontFamily="@font/regular"
+        android:gravity="center_vertical"
+        android:hint="Summa"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@id/flag2"
+        app:layout_constraintLeft_toRightOf="@id/flag2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flag2"
+        tools:ignore="HardcodedText,SpUsage" />
+
+    <ImageView
+        android:id="@+id/exchange"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_exchange_vertical"
+        app:layout_constraintBottom_toBottomOf="@id/flag2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/flag1"
+        app:layout_constraintTop_toTopOf="@id/flag1" />
+
+    <TextView
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:drawableLeft="@drawable/ic_exchange"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/regular"
+        android:textSize="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flag2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/refresh"
+        tools:listitem="@layout/item_currency" />
+</androidx.constraintlayout.widget.ConstraintLayout>
